@@ -1,0 +1,30 @@
+<div class="card text-dark bg-light mb-3" >
+    <div class="card-header">
+        <div class="fs-4">
+            {{post.by}}
+        </div>
+        
+        <div class="fs-6">
+            {{post.location}}
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <div class="card">
+            <img class="card-img-top" [src]="post.picture" alt="Card image cap">
+            
+          </div>
+    </div>
+    <div class="card-footer">
+        <img *ngIf="like" src="https://simg.nicepng.com/png/small/778-7786050_download-instagram-like-icon-png.png" (click)="ondislike()" height="20" alt="">
+        <img *ngIf="!like" src="https://iconape.com/wp-content/png_logo_vector/like.png" (click)="onLike()" height="20" alt="">
+        {{likecounts}}
+        <div class="font-weight-bold">
+            {{post.description}}
+        </div>
+        <div class="fs-6 float-right">
+            {{post.date | date}}
+        </div>
+      </div>
+  </div>
+

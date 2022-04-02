@@ -1,0 +1,42 @@
+<div class="main row mt-5">
+    <div class="col col-6">
+        <div class="card">
+            <div class="card-header text-center">
+              Add your Post
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label for="location">Add a location</label>
+                      <input type="text" class="form-control" id="locationName" name="locationName" placeholder="city, country" [(ngModel)]="locationName">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Add a description</label>
+                        <textarea class="form-control" id="description" name="description" [(ngModel)]="description"></textarea>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="picture">Add a picture</label><br>
+                        <input type="file" 
+                    name="image" 
+                    id="imagepicker"
+                    accept="image/*"
+                    multiple="{false}"
+                    class="hidden"
+                    (change)="uploadFile($event)">
+                    </div><br>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">
+                            Post
+                        </button>
+                    </div>
+                    *Please wait for image to upload
+                </form>
+
+            </div>
+          </div>
+    </div>
+    <div *ngIf="picture" class="col col-6">
+        <div class="text-success">Your Image</div>
+        <img [src]="picture" height="50%" alt="">
+    </div>
+</div>
